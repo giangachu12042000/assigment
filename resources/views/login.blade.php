@@ -1,5 +1,5 @@
 
-@extends('')
+@extends('layout')
     <form action="{{ route('post-login') }}" method="POST">
         @csrf
         <div>
