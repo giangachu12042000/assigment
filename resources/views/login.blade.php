@@ -1,5 +1,8 @@
+@extends('layout.index')
 
-@extends('layout')
+@section('title','đăng nhập')
+
+@section('content')
     <form action="{{ route('post-login') }}" method="POST">
         @csrf
         <div>
@@ -12,3 +15,4 @@
             <button type="submit"> submit</button>
         </div>
     </form>
+@endsection

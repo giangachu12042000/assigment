@@ -1,0 +1,4 @@
+php artisan key:general
+options: php artisan make:controller _ten_ --model=____
+
+bt: sử dụng resources controller -> show->màn hình show
