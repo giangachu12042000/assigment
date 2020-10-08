@@ -143,7 +143,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </nav>
   <!-- /.navbar -->
 
-
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -210,7 +209,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-    @yield('content')
+  <div class="content-wrapper">
+      <div class="row">
+          <div class="col-md-12">
+              <h3 class="m-right-14">@yield('header-content') </h3>
+          </div>
+          <div class="col-md-11">
+            @yield('content')
+          </div>
+      </div>
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

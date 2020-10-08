@@ -26,7 +26,7 @@ class Studentcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('students.add');
     }
 
     /**
@@ -37,7 +37,16 @@ class Studentcontroller extends Controller
      */
     public function store(Request $request)
     {
-       
+        $newStudent = new Student();
+         
+        $newStudent->name = $request->name;
+        $newStudent->address = $request->address;
+        $newStudent->gender = $request->gender;
+        $newStudent->is_active = $request->is_active;
+        $newStudent->age = $request->age;
+        $newStudent->save();
+
+        return redirect()->route('students.index');
     }
 
     /**
@@ -49,14 +58,6 @@ class Studentcontroller extends Controller
     // show sử dụng phương thức get
     public function show(Student $student)
     {
-         // nhận tham số id
-        //  $studentById = Student::find($student);
-
-         // nếu chỉ truyền vào $student thì nó trả về  một Oject -> tìm student theo id
-        //  $studentOjectQueryBuider = DB::table('students') -> find($student);
-        //  dd($studentEloquentModel);
-        //  dd($studentOjectQueryBuider );
-        // dd($studentById);
          return view('students.detail',['student'=>$student]);
     }
 
@@ -68,7 +69,7 @@ class Studentcontroller extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit',['student'=> $student]);
     }
 
     /**
@@ -80,7 +81,9 @@ class Studentcontroller extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        
+        $student->update($request->all());
+        return redirect()->route('students.index');
     }
 
     /**
@@ -91,6 +94,10 @@ class Studentcontroller extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        if($student){
+            $student -> delete();// trả về true or false 
+            // destroy -> dùng đẻ xóa một mang và trả về số luongj bản ghi đã xóa
+        }
+        return redirect()->route('students.index');
     }
 }
