@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Studentcontroller;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Models\Students;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +25,19 @@ Route::get('/', function () {
 });
 
 Route::resource('students',Studentcontroller::class)
+->except([
+    
+]) ;
+
+Route::resource('posts',PostController::class)
+->except([
+    
+]) ;
+Route::resource('categories',CategoryController::class)
+->except([
+    
+]) ;
+Route::resource('comments',CommentController::class)
 ->except([
     
 ]) ;

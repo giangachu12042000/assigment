@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubjcetFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,9 @@ class SubjcetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'parent_id' => $this->faker->numberBetween(1, 10),
+            'name' => $this->faker->text(5),
+            'status' => 1
         ];
     }
 }
